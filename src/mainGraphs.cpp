@@ -12,7 +12,7 @@ using namespace std;
 
 int main(){
 	
-	/*Fun Commentary Added.*/
+	/*Fun Commentary Added. New change.*/
 
 	ex::DirectedGraph<char, int> gra;
 	std::map<char, ex::GraphNode<char, int>*> aNodes;
