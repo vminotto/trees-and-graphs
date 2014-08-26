@@ -127,6 +127,7 @@
       <AdditionalIncludeDirectories>..\include</AdditionalIncludeDirectories>
       <ObjectFileName>$(ExeDefaultDir)\$(ProjectName).obj</ObjectFileName>
       <ProgramDataBaseFileName>$(ExeDefaultDir)\vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -136,6 +137,9 @@
     <BuildLog>
       <Path>$(ExeDefaultDir)\$(MSBuildProjectName).log</Path>
     </BuildLog>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>

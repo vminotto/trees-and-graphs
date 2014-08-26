@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <DebugSuffix Condition="'$(Configuration)'=='Debug'">d</DebugSuffix>
+    <DebugSuffix Condition="'$(Configuration)'!='Debug'">
+    </DebugSuffix>
+    <LibDumpDir>$(SolutionDir)lib</LibDumpDir>
+    <LibDefaultDir>$(LibDumpDir)\$(PlatformShortName)</LibDefaultDir>
+    <LibDefaultName>$(ProjectName)$(PlatformArchitecture)$(DebugSuffix)</LibDefaultName>
+    <LibFullName>$(LibDefaultName)$(TargetExt)</LibFullName>
+    <LibFullPath>$(LibDefaultDir)\$(LibFullName)</LibFullPath>
+    <ExeDefaultDir>$(ProjectDir)$(PlatformShortName)\$(Configuration)</ExeDefaultDir>
+    <OpenCVVer>249</OpenCVVer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <IncludePath>..\include;$(ProjectDir)..\include;$(PTHREADS_INC_DIR);$(TBB_INC_DIR);$(KINECTTOOLKIT_INC_DIR);$(KINECTSDK_INC_DIR);$(OPENCV_INC_DIR);$(OPENCV_INC_DIR)\opencv2;$(OPENCV_INC_DIR)\opencv;$(OSGWORKS_INC_DIR);$(OSG_INC_DIR);$(BOOST_INC_DIR);$(CUDA_INC_DIR);$(CUDASAMPLES_INC_DIR);$(BOOST_INC_DIR)\..;$(TPLibs)\fftw-3.3.3\inc;$(TPLibs)\libsndfile\inc;$(TPLibs)\VideoInput\$(VSVER)\include;$(BinsTracker)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(PTHREADS_LIB_DIR);$(KINECTTOOLKIT_LIB_DIR);$(KINECTSDK_LIB_DIR);$(BOOST_LIB_DIR);$(OSGWORKS_LIB_DIR);$(OSG_LIB_DIR);$(OPENCV_LIB_DIR);$(CUDA_LIB_DIR);$(TPLibs)\fftw-3.3.3\lib\$(PlatformShortName);$(TPLibs)\libsndfile\lib\$(PlatformShortName);$(TPLibs)\VideoInput\$(VSVER)\lib;$(BinsTracker)\lib\$(PlatformShortName);$(LibraryPath)</LibraryPath>
+    <SourcePath>$(BinsTracker)\src;$(SourcePath)</SourcePath>
+  </PropertyGroup>
+  <ItemGroup>
+    <BuildMacro Include="DebugSuffix">
+      <Value>$(DebugSuffix)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="LibDumpDir">
+      <Value>$(LibDumpDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibDefaultDir">
+      <Value>$(LibDefaultDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="LibDefaultName">
+      <Value>$(LibDefaultName)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="LibFullName">
+      <Value>$(LibFullName)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibFullPath">
+      <Value>$(LibFullPath)</Value>
+    </BuildMacro>
+    <BuildMacro Include="ExeDefaultDir">
+      <Value>$(ExeDefaultDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="OpenCVVer">
+      <Value>$(OpenCVVer)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
