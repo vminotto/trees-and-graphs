@@ -64,23 +64,36 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>..\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <OutDir>$(LibDefaultDir)\</OutDir>
+    <TargetName>$(LibDefaultName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>..\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <OutDir>$(LibDefaultDir)\</OutDir>
+    <TargetName>$(LibDefaultName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>..\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <OutDir>$(LibDefaultDir)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <TargetName>$(LibDefaultName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>..\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <OutDir>$(LibDefaultDir)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <TargetName>$(LibDefaultName)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>..\include</AdditionalIncludeDirectories>
     </ClCompile>
     <BuildLog>
-      <Path>$(ExeDefaultDir)\$(MSBuildProjectName).log</Path>
+      <Path>$(IntDir)$(MSBuildProjectName).log</Path>
     </BuildLog>
+    <Lib>
+      <AdditionalDependencies>opencv_core$(OpenCVVer)$(DebugSuffix).lib;opencv_imgproc$(OpenCVVer)$(DebugSuffix).lib</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -88,31 +101,41 @@
       <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <BuildLog>
-      <Path>$(ExeDefaultDir)\$(MSBuildProjectName).log</Path>
+      <Path>$(IntDir)$(MSBuildProjectName).log</Path>
     </BuildLog>
     <Bscmake>
       <PreserveSbr>true</PreserveSbr>
     </Bscmake>
+    <Lib>
+      <AdditionalDependencies>opencv_core$(OpenCVVer)$(DebugSuffix).lib;opencv_imgproc$(OpenCVVer)$(DebugSuffix).lib</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>..\include</AdditionalIncludeDirectories>
     </ClCompile>
     <BuildLog>
-      <Path>$(ExeDefaultDir)\$(MSBuildProjectName).log</Path>
+      <Path>$(IntDir)$(MSBuildProjectName).log</Path>
     </BuildLog>
+    <Lib>
+      <AdditionalDependencies>opencv_core$(OpenCVVer)$(DebugSuffix).lib;opencv_imgproc$(OpenCVVer)$(DebugSuffix).lib</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>..\include</AdditionalIncludeDirectories>
     </ClCompile>
     <BuildLog>
-      <Path>$(ExeDefaultDir)\$(MSBuildProjectName).log</Path>
+      <Path>$(IntDir)$(MSBuildProjectName).log</Path>
     </BuildLog>
+    <Lib>
+      <AdditionalDependencies>opencv_core$(OpenCVVer)$(DebugSuffix).lib;opencv_imgproc$(OpenCVVer)$(DebugSuffix).lib</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\include\DirectedGraph.h" />
     <ClInclude Include="..\include\GraphNode.h" />
+    <ClInclude Include="..\include\MatrixGraph.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

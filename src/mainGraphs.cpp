@@ -2,17 +2,35 @@
 #include <numeric>
 #include <map>
 #include <iostream>
-
+#include <opencv.hpp>
 #include "DirectedGraph.h"
+#include "MatrixGraph.h"
 
 
 using uchar = unsigned char;
 using uint = unsigned int;
 using namespace std;
 
-int main(){
+std::uint64_t my_coin_sum(std::vector<int> &coins, int s, int e){
 	
-	/*Fun Commentary Added. New change.*/
+	if (s > e)
+		return 0;
+	if (s == e)
+		return coins[s];
+
+	std::uint64_t begPick = coins[s] + std::min(my_coin_sum(coins, s + 1, e - 1), my_coin_sum(coins, s + 2, e));
+	std::uint64_t endPick = coins[e] + std::min(my_coin_sum(coins, s + 1, e - 1), my_coin_sum(coins, s, e - 2));
+
+	return std::max(begPick, endPick);
+}
+
+int main(){
+
+	std::vector<int> coins = { 1,3,1};
+	std::uint64_t myBestSum = my_coin_sum(coins, 0, coins.size() - 1);
+	std::uint64_t opoBestSum = std::accumulate(coins.begin(), coins.end(), 0) - myBestSum;
+	
+	ex::MatrixGraph<double> mGraph;
 
 	ex::DirectedGraph<char, int> gra;
 	std::map<char, ex::GraphNode<char, int>*> aNodes;
